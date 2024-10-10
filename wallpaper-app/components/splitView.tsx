@@ -6,12 +6,17 @@ import { DownloadWallpaper } from "./BottomSheet";
 import ParallaxScrollView from "./ParallaxScrollView";
 import { ThemedView } from "./ThemedView";
 
-export function SplitView({wallpapers}:{
+export function SplitView({wallpapers,onScroll}:{
     wallpapers:Wallpaper[];
+    onScroll : (yOffset: number) => void;
 }){
     const [selectedWallpaper,setSelectedWallpaper] = useState<null | Wallpaper>(null);
     return <>
-        <FlatList data={wallpapers.filter((_,index) => index % 2 === 0).map((_,index) =>
+        <FlatList 
+        onScroll={(e)=>{
+            let yOffset = e.nativeEvent.contentOffset.y / 1;
+        }}
+        data={wallpapers.filter((_,index) => index % 2 === 0).map((_,index) =>
             [wallpapers[index],wallpapers[index+1]]
         )}
         renderItem={({item:[first,second]})=><ThemedView style={styles.container}>
