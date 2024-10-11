@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Wallpaper { // Corrected spelling from Wallpapper to Wallpaper
+  id          String       @id @default(uuid())
+  name        String
+  image       String
+  artist      String
+  resolution  String
+  type        String
+  likes       Int          @default(0)
+  likedBy     User[]       @relation("LikedWallpapers") // Define many-to-many relationship
+  collections Collection[]  @relation("WallpaperCollections") // Define one-to-many relationship
+}
+
+model User {
+  id              String       @id @default(uuid()) // Add default for id
+  email           String       @unique // Ensure email is unique
+  name            String
+  likedWallpapers Wallpaper[]   @relation("LikedWallpapers") // Correct relation name
+  collections     Collection[]   @relation("UserCollections")
+  Collection Collection[]
+}
+
+model Collection {
+  id          String       @id @default(uuid())
+  name        String
+  userId      String
+  user        User         @relation(fields: [userId], references: [id])
+  wallpapers   Wallpaper[]  @relation("WallpaperCollections") 
+  User User[] @relation("UserCollections")
+}

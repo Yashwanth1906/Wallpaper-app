@@ -12,7 +12,7 @@ export default function ImageCard({wallpaper,onPress}:{
     const theme = useColorScheme()??'light'
     return <Pressable onPress={onPress}>
         <View>
-            <Image source={{uri:wallpaper.url}} style={style.image}/>
+            <Image source={{uri:wallpaper.image}} style={style.image}/>
             <View style={style.labelContainer}>
                 <ThemedText style={style.label}>{wallpaper.name}</ThemedText>
                 <View style={style.iconContainer}>

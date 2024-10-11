@@ -5,13 +5,23 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Carousel from 'react-native-reanimated-carousel';
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios"
 
 export default function explore(){
     const wallpapers = useWallpapers();
+    const [message,setMessage] = useState<string | null>(null);
     const [yOffset,setYOffSet] = useState(0);
-    const width = Dimensions.get('window').width
+    const width = Dimensions.get('window').width;
+    useEffect(()=>{
+        const response =axios.get("http://192.168.1.7:6969/api");
+        response.then((data)=>{
+            console.log(data.data);
+            setMessage(data.data)
+        })
+    },[])
     return<SafeAreaView style={styles.mainContainer}>
+        <ThemedText>{message}</ThemedText>
         <ThemedView style={{height:300}}>
             <Carousel
                 loop

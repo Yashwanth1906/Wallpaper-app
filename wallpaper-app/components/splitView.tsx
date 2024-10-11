@@ -7,7 +7,7 @@ import ParallaxScrollView from "./ParallaxScrollView";
 import { ThemedView } from "./ThemedView";
 
 export function SplitView({wallpapers,onScroll}:{
-    wallpapers:Wallpaper[];
+    wallpapers:Wallpaper[] |null;
     onScroll : (yOffset: number) => void;
 }){
     const [selectedWallpaper,setSelectedWallpaper] = useState<null | Wallpaper>(null);
@@ -16,7 +16,7 @@ export function SplitView({wallpapers,onScroll}:{
         onScroll={(e)=>{
             let yOffset = e.nativeEvent.contentOffset.y / 1;
         }}
-        data={wallpapers.filter((_,index) => index % 2 === 0).map((_,index) =>
+        data={wallpapers?.filter((_,index) => index % 2 === 0).map((_,index) =>
             [wallpapers[index],wallpapers[index+1]]
         )}
         renderItem={({item:[first,second]})=><ThemedView style={styles.container}>

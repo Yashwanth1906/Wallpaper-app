@@ -3,7 +3,7 @@ import { StyleSheet, Text, useColorScheme, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';   //The Tab have the Topbar functionality
 import { SplitView } from "@/components/splitView";
-import useWallpapers, { useLibraryWallpappers, useLikedWallpapers, useSuggestedWallpapers } from "@/hooks/useWallpapers";
+import useWallpapers from "@/hooks/useWallpapers";
 import { ThemeProvider } from "@react-navigation/native";
 import { ThemedView } from "@/components/ThemedView";
 import { Colors } from "@/constants/Colors";
@@ -32,7 +32,7 @@ export default function ForYou(){
             }}>
                 <Tab.Screen name="Suggested" component={SuggestedScreen} />
                 <Tab.Screen name="Liked" component={LikedScreen} />
-                <Tab.Screen name="Library" component={LibraryScreen} />
+                {/* <Tab.Screen name="Library" component={LibraryScreen} /> */}
             </Tab.Navigator>
         </SafeAreaView>
     )
