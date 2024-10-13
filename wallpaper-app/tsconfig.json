@@ -1,12 +1,9 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true,
-    "paths": {
-      "@/*": [
-        "./*"
-      ]
-    }
+    "jsx": "react-jsx", // or "react" for older projects
+    "target": "es6",    // or a more recent version like "esnext"
+    "module": "commonjs" // or "esnext" if you're using ES modules
   },
   "include": [
     "**/*.ts",

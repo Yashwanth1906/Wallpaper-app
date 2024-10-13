@@ -1,10 +1,10 @@
-import { SplitView } from "@/components/splitView";
-import useWallpapers from "@/hooks/useWallpapers";
+import { SplitView } from "../../components/splitView";
+import useWallpapers from "../../hooks/useWallpapers";
 import {Dimensions, StyleSheet, View,Text} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Carousel from 'react-native-reanimated-carousel';
-import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "../../components/ThemedView";
+import { ThemedText } from "../../components/ThemedText";
 import { useEffect, useState } from "react";
 import axios from "axios"
 
@@ -17,7 +17,7 @@ export default function explore(){
         const response =axios.get("http://192.168.1.7:6969/api");
         response.then((data)=>{
             console.log(data.data);
-            setMessage(data.data)
+            setMessage(data.data);
         })
     },[])
     return<SafeAreaView style={styles.mainContainer}>

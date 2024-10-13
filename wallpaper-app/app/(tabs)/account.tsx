@@ -1,12 +1,13 @@
-import { DownloadWallpaper } from "@/components/BottomSheet";
+import { DownloadWallpaper } from "../../components/BottomSheet";
 import { Link } from "expo-router";
 import { useState } from "react";
 import { Button, Pressable, StyleSheet, Text, useColorScheme, View,Appearance, AppRegistry } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Colors } from "@/constants/Colors";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import { Colors } from "../../constants/Colors";
+import { ThemedText } from "../../components/ThemedText";
+import { ThemedView } from "../../components/ThemedView";
+import axios from "axios";
 
 export default function account(){
     const [pictureOpen,setPictureOpen] = useState(false);
@@ -57,7 +58,6 @@ function LoginButtons(){
 }
 
 
-
 function Header(){
     return <ThemedView style={styles.headerBar}>
         <ThemedText style={styles.headerTextTitle}>Panels</ThemedText>
@@ -70,10 +70,10 @@ function AuthButton ({icon,label}:{
     label:string
 }){
     const theme = useColorScheme() ?? "light";
-    return <Pressable onPress={()=> console.log("Pressed")} style={[styles.buttonContainer,{backgroundColor:theme === "light" ? "white" : "black", borderColor: theme === "light" ? "black" : "white", borderWidth:1}]}>
+    return <Link href={"/login"}><Pressable style={[styles.buttonContainer,{backgroundColor:theme === "light" ? "white" : "black", borderColor: theme === "light" ? "black" : "white", borderWidth:1}]}>
         {icon}
         <ThemedText style={styles.buttonText}>{label}</ThemedText>
-    </Pressable>
+    </Pressable></Link>
 }
 
 const styles = StyleSheet.create(

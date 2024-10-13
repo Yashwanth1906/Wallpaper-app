@@ -1,5 +1,5 @@
 import { FlatList,StyleSheet, View } from "react-native";
-import { Wallpaper } from "@/hooks/useWallpapers";
+import { Wallpaper } from "../hooks/useWallpapers";
 import { useState } from "react";
 import ImageCard from "./ImageCard";
 import { DownloadWallpaper } from "./BottomSheet";

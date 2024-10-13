@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo, useRef } from 'react';
 import { View, Text, StyleSheet, Image, Button, useColorScheme, Pressable, SafeAreaView } from 'react-native';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
-import { Wallpaper } from '@/hooks/useWallpapers';
+import { Wallpaper } from '../hooks/useWallpapers';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { Colors } from '@/constants/Colors';
+import { Colors } from '../constants/Colors';
 import { ThemedText } from './ThemedText';
 import { ThemedView } from './ThemedView';
 
@@ -33,7 +33,7 @@ export const DownloadWallpaper = ({onClose, wallpapper}:{
       >
         <BottomSheetView style={styles.contentContainer}>
           <ThemedView style={{flex:1}}>
-          <Image style={styles.image} source={{uri:wallpapper.url}}/>
+          <Image style={styles.image} source={{uri:wallpapper.image}}/>
           <View style={styles.closeBar}>
             <Pressable onPress={onClose}>
               <Ionicons name={"close"} size={24} color={theme === "light" ? Colors.light.text:Colors.dark.text}></Ionicons>

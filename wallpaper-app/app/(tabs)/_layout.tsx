@@ -2,7 +2,7 @@ import React from "react";
 import {  Tabs } from "expo-router";
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { useColorScheme } from "react-native";
-import { Colors } from "@/constants/Colors";
+import { Colors } from "../../constants/Colors";
 
 export default function Layout() {
   const theme = useColorScheme()??"light";

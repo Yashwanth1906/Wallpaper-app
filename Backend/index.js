@@ -1,6 +1,7 @@
 import express from "express"
 import cors from "cors"
 import { wallpapperRouter } from "./Routes/wallpaperRoute.js";
+import { userRouter } from "./Routes/userRoute.js";
 const app = express();
 app.use(express.json())
 app.use(cors());
@@ -15,3 +16,4 @@ app.get("/api",(req,res)=>{
 })
 
 app.use("/api/wallpapper",wallpapperRouter);
+app.use("/api/user",userRouter)

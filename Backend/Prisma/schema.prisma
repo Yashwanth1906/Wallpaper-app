@@ -20,10 +20,11 @@ model Wallpaper { // Corrected spelling from Wallpapper to Wallpaper
 }
 
 model User {
-  id              String       @id @default(uuid()) // Add default for id
-  email           String       @unique // Ensure email is unique
+  id              String       @id @default(uuid())
+  email           String       @unique
   name            String
-  likedWallpapers Wallpaper[]   @relation("LikedWallpapers") // Correct relation name
+  password        String
+  likedWallpapers Wallpaper[]   @relation("LikedWallpapers")
   collections     Collection[]   @relation("UserCollections")
   Collection Collection[]
 }

@@ -1,8 +1,8 @@
-import { Wallpaper } from "@/hooks/useWallpapers";
+import { Wallpaper } from "../hooks/useWallpapers";
 import { Image, View,StyleSheet, useColorScheme, Pressable } from "react-native";
 import { ThemedText } from "./ThemedText";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Colors } from "@/constants/Colors";
+import { Colors } from "../constants/Colors";
 import React from "react";
 
 export default function ImageCard({wallpaper,onPress}:{
